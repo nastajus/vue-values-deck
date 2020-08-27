@@ -70,16 +70,9 @@
   .deck-classifier-column {
     text-align: left;
     margin: 0 30px;
-
-    // position: relative;
-    // min-height: 4em;
   }
 
   .card {
     margin: 10px;
-    // max-height: 100%;
-    // overflow: auto ;
-
-
   }
 </style>
