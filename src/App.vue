@@ -1,9 +1,14 @@
 <template>
   <div id="app">
+    <a v-bind:href="stuff">go to this place</a>
+    <input type="text" v-bind:value="stuff" />
     <DeckClassifier/>
     <DeckCarouselRemaining />
   </div>
 </template>
+
+
+
 
 <script>
 import DeckClassifier from './components/DeckClassifier.vue'
@@ -11,12 +16,17 @@ import DeckCarouselRemaining from './components/DeckCarouselRemaining.vue'
 
 export default {
   name: 'App',
+  // data: { stuff: "http://things", },
+  data () { return { stuff: "http://things", } },
   components: {
     DeckClassifier,
     DeckCarouselRemaining,
   }
 }
 </script>
+
+
+
 
 <style lang="scss">
 // SASS style sheet */
