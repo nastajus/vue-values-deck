@@ -1,17 +1,20 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
-    <Main />
+    <DeckClassifier/>
+    <DeckCarouselRemaining />
   </div>
 </template>
 
 <script>
-import Main from './components/Main/index'
+import DeckClassifier from './components/DeckClassifier.vue'
+import DeckCarouselRemaining from './components/DeckCarouselRemaining.vue'
 
 export default {
   name: 'App',
   components: {
-    Main,
+    DeckClassifier,
+    DeckCarouselRemaining,
   }
 }
 </script>
