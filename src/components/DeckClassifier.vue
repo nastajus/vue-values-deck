@@ -60,7 +60,6 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 33px auto; //hack due to `grid-template-rows: 6fr 1fr` in #app
-
     //                  ^^^^
     //                  DO NOT WANT, BUT... 
     // my using `grid-template-rows: 6fr 1fr;` in parent #app forced it
@@ -71,9 +70,16 @@
   .deck-classifier-column {
     text-align: left;
     margin: 0 30px;
+
+    // position: relative;
+    // min-height: 4em;
   }
 
   .card {
     margin: 10px;
+    // max-height: 100%;
+    // overflow: auto ;
+
+
   }
 </style>
