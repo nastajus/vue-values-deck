@@ -1,7 +1,5 @@
 <template>
   <div id="app">
-    <a v-bind:href="stuff">go to this place</a>
-    <input type="text" v-bind:value="stuff" />
     <DeckClassifier/>
     <DeckCarouselRemaining />
   </div>
@@ -16,8 +14,6 @@ import DeckCarouselRemaining from './components/DeckCarouselRemaining.vue'
 
 export default {
   name: 'App',
-  // data: { stuff: "http://things", },
-  data () { return { stuff: "http://things", } },
   components: {
     DeckClassifier,
     DeckCarouselRemaining,
