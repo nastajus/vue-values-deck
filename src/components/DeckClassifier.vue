@@ -3,7 +3,11 @@
   <section class="deck-classifier">
     <!-- <h1>deck-classifier Component</h1> -->
 
-    <div class="deck-classifier-column">One
+    <div>One</div>
+    <div>Two</div>
+    <div>Three</div>
+
+    <div class="deck-classifier-column">
       <img src="./../assets/logo.png" width="100px"> 
       <img src="./../assets/logo.png" width="100px"> 
       <img src="./../assets/logo.png" width="100px"> 
@@ -12,8 +16,16 @@
       <img src="./../assets/logo.png" width="100px"> 
       <img src="./../assets/logo.png" width="100px"> 
     </div>
-    <div class="deck-classifier-column">Two</div>
-    <div class="deck-classifier-column">Three</div>
+
+    <div class="deck-classifier-column">
+
+    </div>
+
+
+    <div class="deck-classifier-column">
+      
+    </div>
+
 
   </section>
 
@@ -48,6 +60,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
   }
+
   .deck-classifier-column {
     //display: grid;
     // display: flex;
@@ -55,7 +68,7 @@
 
     // flex-wrap: wrap;
     // ////////// align-items: flex-start;
-    
+
     text-align: left;
   }
 </style>
