@@ -1,6 +1,6 @@
 <template lang="html">
 
-  <section class="deck-classifier"> <!-- style="grid" -->
+  <section class="deck-classifier">
     <!-- <h1>deck-classifier Component</h1> -->
 
     <div>One</div>
@@ -40,8 +40,4 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
   }
-
-  // .container {
-  //   display: grid;
-  // }
 </style>
