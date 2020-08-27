@@ -62,13 +62,6 @@
   }
 
   .deck-classifier-column {
-    //display: grid;
-    // display: flex;
-    // flex-direction: column;
-
-    // flex-wrap: wrap;
-    // ////////// align-items: flex-start;
-
     text-align: left;
     margin: 0 30px;
   }
