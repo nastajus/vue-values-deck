@@ -8,13 +8,13 @@
     <div>Three</div>
 
     <div class="deck-classifier-column">
-      <img src="./../assets/logo.png" width="100px"> 
-      <img src="./../assets/logo.png" width="100px"> 
-      <img src="./../assets/logo.png" width="100px"> 
-      <img src="./../assets/logo.png" width="100px"> 
-      <img src="./../assets/logo.png" width="100px"> 
-      <img src="./../assets/logo.png" width="100px"> 
-      <img src="./../assets/logo.png" width="100px"> 
+      <img src="./../assets/logo.png" width="100px" class="card"> 
+      <img src="./../assets/logo.png" width="100px" class="card"> 
+      <img src="./../assets/logo.png" width="100px" class="card"> 
+      <img src="./../assets/logo.png" width="100px" class="card"> 
+      <img src="./../assets/logo.png" width="100px" class="card"> 
+      <img src="./../assets/logo.png" width="100px" class="card"> 
+      <img src="./../assets/logo.png" width="100px" class="card"> 
     </div>
 
     <div class="deck-classifier-column">
@@ -64,5 +64,9 @@
   .deck-classifier-column {
     text-align: left;
     margin: 0 30px;
+  }
+
+  .card {
+    margin: 10px;
   }
 </style>
