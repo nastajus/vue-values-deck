@@ -40,6 +40,9 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  margin-top: 60px;
+  // top right bottom left
+  // T R B L 
+  // tribble
+  margin: 60px 30px 30px;
 }
 </style>

@@ -70,5 +70,6 @@
     // ////////// align-items: flex-start;
 
     text-align: left;
+    margin: 0 30px;
   }
 </style>
