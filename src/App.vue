@@ -44,5 +44,8 @@ body {
   // T R B L 
   // tribble
   margin: 60px 30px 30px;
+  display: grid;
+  grid-template-rows: 6fr 1fr;
 }
+
 </style>
