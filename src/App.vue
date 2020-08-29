@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <DeckClassifier/>
+    <DeckClassifier v-bind:cards="deck"/>
     <DeckCarouselRemaining v-bind:cards="deck" />
   </div>
 </template>

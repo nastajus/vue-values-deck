@@ -8,19 +8,9 @@
     <div>Three</div>
 
     <div class="deck-classifier-column">
-      <div class="card">
-        <img src="./../assets/logo.png">
-      </div>
+      <DeckCard v-bind:card="cards[0]"/>
+      <DeckCard v-bind:card="cards[0]"/>
 
-      <div class="card">
-        <img src="./../assets/logo.png">
-      </div>
-
-      <!-- <img src="./../assets/logo.png" class="card"> 
-      <img src="./../assets/logo.png" class="card"> 
-      <img src="./../assets/logo.png" class="card"> 
-      <img src="./../assets/logo.png" class="card"> 
-      <img src="./../assets/logo.png" class="card">  -->
     </div>
 
     <div class="deck-classifier-column">
@@ -39,9 +29,14 @@
 
 <script lang="js">
 
+import DeckCard from "./DeckCard.vue";
+
   export default  {
     name: 'deck-classifier',
-    props: [],
+    components: { 
+      DeckCard
+    },
+    props: ['cards'],
     mounted () {
 
     },
@@ -78,13 +73,4 @@
     margin: 0 30px;
   }
 
-  
-
-  .card {
-    margin: 10px; //duplicating for now in another component
-  }
-
-    .card img {
-    width: 100px;
-  }
 </style>
