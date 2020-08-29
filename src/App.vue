@@ -68,10 +68,10 @@ body {
   // T R B L 
   // tribble
   margin: 60px 30px 30px;
-  display: grid;
 
-  // disabling 6fr 1fr as ~not great & interferes other designs.
-  grid-template-rows: 1fr 1fr;
+  // disabling grid code, as ~not great & interferes other designs.
+  //display: grid;
+  //grid-template-rows: 6fr 1fr;
 }
 
 </style>
