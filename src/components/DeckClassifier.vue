@@ -73,6 +73,6 @@
   }
 
   .card {
-    margin: 10px;
+    margin: 10px; //duplicating for now in another component
   }
 </style>
