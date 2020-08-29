@@ -51,7 +51,9 @@ body {
   // tribble
   margin: 60px 30px 30px;
   display: grid;
-  grid-template-rows: 6fr 1fr;
+
+  // disabling 6fr 1fr as ~not great & interferes other designs.
+  grid-template-rows: 1fr 1fr;
 }
 
 </style>
