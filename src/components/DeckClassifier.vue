@@ -58,9 +58,9 @@ import DeckCard from "./DeckCard.vue";
 
 <style scoped lang="scss">
   .deck-classifier {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 33px auto; //hack due to `grid-template-rows: 6fr 1fr` in #app
+    // display: grid;
+    // grid-template-columns: 1fr 1fr 1fr;
+    // grid-template-rows: 33px auto; //hack due to `grid-template-rows: 6fr 1fr` in #app
     //                  ^^^^
     //                  DO NOT WANT, BUT... 
     // my using `grid-template-rows: 6fr 1fr;` in parent #app forced it
