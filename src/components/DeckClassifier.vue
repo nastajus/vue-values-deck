@@ -8,13 +8,19 @@
     <div>Three</div>
 
     <div class="deck-classifier-column">
-      <img src="./../assets/logo.png" width="100px" class="card"> 
-      <img src="./../assets/logo.png" width="100px" class="card"> 
-      <!-- <img src="./../assets/logo.png" width="100px" class="card"> 
-      <img src="./../assets/logo.png" width="100px" class="card"> 
-      <img src="./../assets/logo.png" width="100px" class="card"> 
-      <img src="./../assets/logo.png" width="100px" class="card"> 
-      <img src="./../assets/logo.png" width="100px" class="card">  -->
+      <div class="card">
+        <img src="./../assets/logo.png">
+      </div>
+
+      <div class="card">
+        <img src="./../assets/logo.png">
+      </div>
+
+      <!-- <img src="./../assets/logo.png" class="card"> 
+      <img src="./../assets/logo.png" class="card"> 
+      <img src="./../assets/logo.png" class="card"> 
+      <img src="./../assets/logo.png" class="card"> 
+      <img src="./../assets/logo.png" class="card">  -->
     </div>
 
     <div class="deck-classifier-column">
@@ -72,7 +78,13 @@
     margin: 0 30px;
   }
 
+  
+
   .card {
     margin: 10px; //duplicating for now in another component
+  }
+
+    .card img {
+    width: 100px;
   }
 </style>
