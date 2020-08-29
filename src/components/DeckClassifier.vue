@@ -10,11 +10,11 @@
     <div class="deck-classifier-column">
       <img src="./../assets/logo.png" width="100px" class="card"> 
       <img src="./../assets/logo.png" width="100px" class="card"> 
+      <!-- <img src="./../assets/logo.png" width="100px" class="card"> 
       <img src="./../assets/logo.png" width="100px" class="card"> 
       <img src="./../assets/logo.png" width="100px" class="card"> 
       <img src="./../assets/logo.png" width="100px" class="card"> 
-      <img src="./../assets/logo.png" width="100px" class="card"> 
-      <img src="./../assets/logo.png" width="100px" class="card"> 
+      <img src="./../assets/logo.png" width="100px" class="card">  -->
     </div>
 
     <div class="deck-classifier-column">
