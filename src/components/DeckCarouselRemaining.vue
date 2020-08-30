@@ -2,9 +2,7 @@
 
   <section class="deck-carousel-remaining">
     <h1>deck-carousel-remaining Component</h1>
-    <div v-for="card in cards" v-bind:key=card.id class="card">
-      <DeckCard v-bind:card="card"/>
-    </div>
+    <DeckCard v-for="card in cards" v-bind:key=card.id v-bind:card="card"/>
   </section>
 
 </template>
