@@ -21,7 +21,7 @@
     },
     data () {
       return {
-        cards: this.$store.deck.cards
+        cards: this.$store.assessment.options
       }
     },
     methods: {

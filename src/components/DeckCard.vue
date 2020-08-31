@@ -1,5 +1,6 @@
 <template lang="html">
   <div class="deck-card">
+    _{{card}}_
     <img v-bind:src="card.src">
   </div>
 </template>
