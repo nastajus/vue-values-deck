@@ -7,7 +7,6 @@
 
 
 
-
 <script>
 import DeckClassifier from './components/DeckClassifier.vue'
 import DeckCarouselRemaining from './components/DeckCarouselRemaining.vue'
@@ -20,17 +19,7 @@ export default {
   },
   data () {
     return {
-      deck: [
 
-      ]
-
-      // error in child comp:   Elements in iteration expect to have 'v-bind:key' directives  vue/require-v-for-key
-      // deck: [
-      //   `@/assets/logo.png`,
-      //   `@/assets/logo-blue.png`,
-      //   `@/assets/logo-violet.png`,
-      //   `@/assets/logo-yellow.png`,
-      // ]
     }
   }
 }
