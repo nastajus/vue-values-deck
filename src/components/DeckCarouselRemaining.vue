@@ -16,13 +16,12 @@
     components: { 
       DeckCard
     },
-    props: ['cards'],
     mounted () {
 
     },
     data () {
       return {
-
+        cards: this.$store.deck.cards
       }
     },
     methods: {

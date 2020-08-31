@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <DeckClassifier v-bind:cards="deck"/>
-    <DeckCarouselRemaining v-bind:cards="deck" />
+    <DeckClassifier />
+    <DeckCarouselRemaining />
   </div>
 </template>
 
@@ -21,10 +21,7 @@ export default {
   data () {
     return {
       deck: [
-        { id: 1, src: require(`@/assets/logo.png`) }, 
-        { id: 2, src: require(`@/assets/logo-blue.png`) }, 
-        { id: 3, src: require(`@/assets/logo-violet.png`) }, 
-        { id: 4, src: require(`@/assets/logo-yellow.png`) }, 
+
       ]
 
       // error in child comp:   Elements in iteration expect to have 'v-bind:key' directives  vue/require-v-for-key
