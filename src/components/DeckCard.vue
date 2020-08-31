@@ -1,11 +1,7 @@
 <template lang="html">
-
-  <section class="deck-card">
-    <div class="card">
-      <img v-bind:src="card.src">
-    </div>
-  </section>
-
+  <div class="deck-card">
+    <img v-bind:src="card.src">
+  </div>
 </template>
 
 <script lang="js">
@@ -36,14 +32,12 @@
   .deck-card {
     // on parent not child..
     display: inline-block;
-
-  }
-
-  .card {
     margin: 10px;
+    border-style: dashed;
+    border-width: 4px;
   }
 
-  .card img {
+  .deck-card img {
     width: 100px;
   }
 </style>
