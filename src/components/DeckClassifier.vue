@@ -32,7 +32,17 @@
     },
     data () {
       return {
-        cards: this.$store.assessment.options
+        //cards: this.$store.assessment.options
+        //cards: this.store.assessment.getOptions 
+        //cards: this.$store.state.assessment.options
+        //cards: this.$store.getters.getOptions
+
+        //cards: this.$store.getOptions // error: Cannot read property 'getOptions' of undefined" ... so no $store... 
+
+        //cards: this.getOptions // no errors, but is undefined.
+        //cards: this.options // no errors, but is undefined.
+        // ... maybe NONE of these data() are appropriate NOW ... 
+
       }
     },
     methods: {
@@ -41,11 +51,12 @@
       loadColumn: function(whichColumn) { 
 
         //find match(es)(ing IDs) inside stored `chosens` of ~~initial load~~ 
-        const chosen = this.$store.assessment.chosen;
+        const chosen = this.getOptions_getOptions;
+        console.log(chosen)
         const chosenIds = chosen.filter(choice => choice.rank == whichColumn).map( choice => choice.id )
 
         //find match(es)(ing CARDs) inside stored `options` of ~~initial load~~
-        const options = this.$store.assessment.options;
+        const options = this.getOptions_getOptions;
         const optionsChosen = options.filter(option => chosenIds.includes(option.id) )
 
 
@@ -53,14 +64,21 @@
         //internet-found
         let newMyArray = options.filter( ( el ) => !optionsChosen.includes( el ) );
         console.log(newMyArray) 
-        this.$store.assessment.options = newMyArray 
+
+
+        // this.getOptions_getOptions = newMyArray 
         //probably should rewrite/centralize all this kind of operations in the store...
+        // Computed property "getOptions_getOptions" was assigned to but it has no setter.
+        // clearly an invalid design... 
 
         return optionsChosen;
         
       }
     },
     computed: {
+      getOptions_getOptions() {
+        return this.$store.getters.getOptions
+      }
     }
 }
 
