@@ -2,22 +2,44 @@
 const state = {
   assessment: {
     options: [
-      { id: 1, src: require(`@/assets/logo.png`) }, 
-      { id: 2, src: require(`@/assets/logo-blue.png`) }, 
-      { id: 3, src: require(`@/assets/logo-violet.png`) }, 
-      { id: 4, src: require(`@/assets/logo-yellow.png`) }, 
+      { id: 1, show: true, src: require(`@/assets/logo.png`) }, 
+      { id: 2, show: true, src: require(`@/assets/logo-blue.png`) }, 
+      { id: 3, show: true, src: require(`@/assets/logo-violet.png`) }, 
+      { id: 4, show: true, src: require(`@/assets/logo-yellow.png`) }, 
     ],
     chosen: [
-      { rank: 1, id: 1 }, 
-      { rank: 3, id: 3 },
-      { rank: 3, id: 4 }
+      {id: 1,  rank: 1 }, 
+      {id: 3,  rank: 3 },
+      {id: 4,  rank: 3 }
     ],
   }
 };
 
-const mutations = { };
+const mutations = { 
+    //moveOptionBetween: (originArray, targetArray) => 
 
-// const actions = { };
+    //assign to `chosen` with INPUT{id, column#(aka: rank)}.
+    classifyOption: (id, rank) => state.assessment.chosen.push( {id, rank} ),
+    //is this good design in javascript?? terrible in js??
+
+    declassifyOption: (id, rank) => state.assessment.chosen.push( {id, rank} ),
+
+    // ** which way is best to remove elements from arrays in js?? **
+    // INTERNET: myArray.splice(start, deleteCount) actually removes the element, reindexes the array, and changes its length. 
+    // MEANS: need index... index + splice go together.... 
+    // QUESTION: best way?? well this (index + splice) or... filter...
+    // ~~ both need id. ok. i take (index + splice) then.
+
+    toggleOption: ( id, bool ) => state.assessment.options.find(id)[show] = bool,
+
+};
+
+const actions = { 
+    choose: ( id, rank ) => {
+        classifyOption(id, rank);
+        toggleOption
+    }
+};
 
 
 const getters = { 
