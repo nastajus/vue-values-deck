@@ -7,8 +7,10 @@
     <div>Two</div>
     <div>Three</div>
 
-    <div class="deck-classifier-column">      
-      <DeckCards v-bind:cards="loadColumn(1)"/>
+    <!-- <div class="deck-classifier-column" v-for="column in [1,2,3]"> -->
+    <div class="deck-classifier-column" v-for="(column, index) in [1,2,3]" v-bind:key="index">
+      <DeckCards v-bind:cards="loadColumn(index+1)"/> <!-- yuck code smell... ❌ --> 
+      <DeckCards v-bind:cards="loadColumn(column)"/> <!-- yes this is the way ✔ --> 
     </div>
 
     <div class="deck-classifier-column">
@@ -16,7 +18,7 @@
     </div>
 
     <div class="deck-classifier-column">
-      <DeckCards v-bind:cards="loadColumn(3)"/>      
+      <DeckCards v-bind:cards="loadColumn(3)"/>
     </div>
 
   </section>
