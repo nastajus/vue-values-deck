@@ -1,18 +1,18 @@
 
 const state = {
-    assessment: {
+  assessment: {
     options: [
-        { id: 1, src: require(`@/assets/logo.png`) }, 
-        { id: 2, src: require(`@/assets/logo-blue.png`) }, 
-        { id: 3, src: require(`@/assets/logo-violet.png`) }, 
-        { id: 4, src: require(`@/assets/logo-yellow.png`) }, 
+      { id: 1, src: require(`@/assets/logo.png`) }, 
+      { id: 2, src: require(`@/assets/logo-blue.png`) }, 
+      { id: 3, src: require(`@/assets/logo-violet.png`) }, 
+      { id: 4, src: require(`@/assets/logo-yellow.png`) }, 
     ],
     chosen: [
-        { rank: 1, id: 1 }, 
-        { rank: 3, id: 3 },
-        { rank: 3, id: 4 }
+      { rank: 1, id: 1 }, 
+      { rank: 3, id: 3 },
+      { rank: 3, id: 4 }
     ],
-    }
+  }
 };
 
 const mutations = { };
@@ -21,7 +21,7 @@ const mutations = { };
 
 
 const getters = { 
-    allOptions: (state) => state.options,
+  allOptions: (state) => state.assessment.options
 }; 
 
 
