@@ -8,10 +8,10 @@
     <div>Three</div>
 
     <div class="deck-classifier-column" v-for="(column, index) in [1,2,3]" v-bind:key="index">
-      <DeckCards v-bind:cards="loadColumn(column)" />
+      <!-- <DeckCards v-bind:cards="loadColumn(column)" /> -->
+      {{ allOptions }}
       <DeckCard /> 
     </div>
-    {{ allOptions }}
 
   </section>
 
@@ -19,14 +19,14 @@
 
 <script lang="js">
 
-  import DeckCards from "./DeckCards.vue";
+  //import DeckCards from "./DeckCards.vue";
   import DeckCard from "./DeckCard.vue";
   import { mapGetters } from "vuex";
 
   export default  {
     name: 'deck-classifier',
     components: { 
-      DeckCards,
+      //DeckCards,
       DeckCard
     },
     mounted () {
@@ -34,57 +34,13 @@
     },
     data () {
       return {
-        //cards: this.$store.assessment.options
-        //cards: this.store.assessment.getOptions 
-        //cards: this.$store.state.assessment.options
-        //cards: this.$store.getters.getOptions
-
-        //cards: this.$store.getOptions // error: Cannot read property 'getOptions' of undefined" ... so no $store... 
-
-        //cards: this.getOptions // no errors, but is undefined.
-        //cards: this.options // no errors, but is undefined.
-        // ... maybe NONE of these data() are appropriate NOW ... 
 
       }
     },
     methods: {
-      //equal? 
-      //loadColumn (whichColumn) { 
-      loadColumn: function(whichColumn) { 
-
-        //find match(es)(ing IDs) inside stored `chosens` of ~~initial load~~ 
-        const chosen = this.allOptions;
-        console.log(chosen)
-        const chosenIds = chosen.filter(choice => choice.rank == whichColumn).map( choice => choice.id )
-
-        //find match(es)(ing CARDs) inside stored `options` of ~~initial load~~
-        const options = this.allOptions;
-        const optionsChosen = options.filter(option => chosenIds.includes(option.id) )
-
-
-        //remove match(es)(ing CARDs) inside stored `options`
-        //internet-found
-        let newMyArray = options.filter( ( el ) => !optionsChosen.includes( el ) );
-        console.log(newMyArray) 
-
-
-        // this.getOptions_getOptions = newMyArray 
-        //probably should rewrite/centralize all this kind of operations in the store...
-        // Computed property "getOptions_getOptions" was assigned to but it has no setter.
-        // clearly an invalid design... 
-
-        return optionsChosen;
-        
-      }
     },
 
     computed: mapGetters(["allOptions"])
-
-    // computed: {
-    //   getOptions_getOptions() {
-    //     return this.$store.getters.getOptions
-    //   }
-    // }
 }
 
 
