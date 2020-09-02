@@ -1,7 +1,7 @@
 
 const state = {
   assessment: {
-    options: [
+    optionsAll: [
       { id: 1, show: true, src: require(`@/assets/logo.png`) }, 
       { id: 2, show: true, src: require(`@/assets/logo-blue.png`) }, 
       { id: 3, show: true, src: require(`@/assets/logo-violet.png`) }, 
@@ -32,7 +32,7 @@ const mutations = {
         state.assessment.chosen.splice(idd, 1);
     },
 
-    toggleOption: ( id, bool ) => state.assessment.options.find(id)['show'] = bool,
+    toggleOption: ( id, bool ) => state.assessment.optionsAll.find(id)['show'] = bool,
 
 };
 
@@ -42,10 +42,11 @@ const actions = {
     load: () => {
 
         //STEP 1: FILL UP `optionsUnchosen` WITH ALL `options`
-        state.assessment.optionsUnchosen = [...state.assessment.options] //good?
+        //state.assessment.optionsUnchosen = [...state.assessment.optionsAll] //good?
 
         //STEP 2: filter
-        
+        // realization: OOH RIGHT this is nonsense cuz they're mismatching objects... 
+        state.assessment.optionsUnchosen = state.assessment.optionsAll.filter( el => !state.assessment.chosen.includes(el) )
         // chosen
         // optionsUnchosen
     },
