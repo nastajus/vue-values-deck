@@ -1,6 +1,5 @@
 <template lang="html">
   <div class="deck-card">
-    _{{card}}_
     <img v-bind:src="card.src">
   </div>
 </template>
@@ -33,8 +32,10 @@
 
 <style scoped lang="scss">
   .deck-card {
-    // on parent not child..
+    
+    //well so this keeps it compressed tightly to inner element width of img.
     display: inline-block;
+
     margin: 10px;
     border-style: dashed;
     border-width: 4px;
