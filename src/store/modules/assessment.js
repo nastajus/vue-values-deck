@@ -7,6 +7,7 @@ const state = {
       { id: 3, show: true, src: require(`@/assets/logo-violet.png`) }, 
       { id: 4, show: true, src: require(`@/assets/logo-yellow.png`) }, 
     ],
+    optionsUnchosen: [],
     chosen: [
       {id: 1,  rank: 1 }, 
       {id: 3,  rank: 3 },
@@ -31,9 +32,34 @@ const mutations = {
 };
 
 const actions = { 
+
+    //use static dummy starting data.. to be run-time dynamically filter from `chosen` and placed into  `optionsUnchosen`, and use then use just `optionsUnchosen` as the external accessor (getter). 
+    // question: can i say this implicitly validates? ugh, nvm, too academic & impractical a question anyways.
+    load: () => {
+
+        //STEP 1: FILL UP `optionsUnchosen` WITH ALL `options`
+
+        //Shallow Copy Only Please note spread only goes one level deep when copying an array
+        //state.assessment.optionsUnchosen = state.assessment.options    //❌
+        state.assessment.optionsUnchosen = [...state.assessment.options] //✅
+
+        //STEP 2: filter
+        // chosen
+        // optionsUnchosen
+    },
+
     choose: ( id, rank ) => {
-        classifyOption(id, rank)
-        toggleOption(id, false)
+        //classifyOption(id, rank)
+        commit('classifyOption', id, rank ) 
+
+        //toggleOption(id, false)
+        commit('toggleOption', id, false )
+
+
+        //fuck if i know it works with 2 params... my example only shows 1 param...... i suppose in fact i've seen a multi-param param before... 
+
+        //mindful programming reminds me to... be okay with the feelings i'm feeling with this... as i'm just experimenting to see what works...
+
     },
 
     unchoose: ( id, rank ) => {
@@ -44,7 +70,7 @@ const actions = {
 
 
 const getters = { 
-  allOptions: (state) => state.assessment.options
+  allOptionsAvailable: (state) => state.assessment.optionsUnchosen
 }; 
 
 

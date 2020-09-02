@@ -9,7 +9,6 @@
 
     <div class="deck-classifier-column" v-for="(column, index) in [1,2,3]" v-bind:key="index">
       <!-- <DeckCards v-bind:cards="loadColumn(column)" /> -->
-      {{ allOptions }}
       <DeckCard /> 
     </div>
 
