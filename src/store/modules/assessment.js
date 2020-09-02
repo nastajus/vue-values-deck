@@ -1,6 +1,8 @@
 
 const state = {
   assessment: {
+      
+    //`CARDs` 'types' so to speak...
     optionsAll: [
       { id: 1, show: true, src: require(`@/assets/logo.png`) }, 
       { id: 2, show: true, src: require(`@/assets/logo-blue.png`) }, 
@@ -13,6 +15,7 @@ const state = {
     // now i begin to recognize these as different data types, merely by their composition... interesting javascript mentality shift... 
     //vvvvvvvvvv
 
+    //`IDs` 'types' so to speak...
     chosen: [
       {id: 1,  rank: 1 }, 
       {id: 3,  rank: 3 },
@@ -41,14 +44,21 @@ const actions = {
     //use static dummy starting data.. to be run-time dynamically filter from `chosen` and placed into  `optionsUnchosen`, and use then use just `optionsUnchosen` as the external accessor (getter). 
     load: () => {
 
-        //STEP 1: FILL UP `optionsUnchosen` WITH ALL `options`
-        //state.assessment.optionsUnchosen = [...state.assessment.optionsAll] //good?
+        //1. find matching `IDs` stored in `chosen`
+        const chosen = [...state.assessment.chosen]
+        const chosenIds = chosen.map(choice => choice.id)
+        console.log('chosenIds', chosenIds)
 
-        //STEP 2: filter
-        // realization: OOH RIGHT this is nonsense cuz they're mismatching objects... 
-        state.assessment.optionsUnchosen = state.assessment.optionsAll.filter( el => !state.assessment.chosen.includes(el) )
-        // chosen
-        // optionsUnchosen
+        //2. find matching `CARDs` stored in `optionsAll`
+        const optionsAll = [...state.assessment.optionsAll]
+        const optionsChosen = optionsAll.filter(option => chosenIds.includes(option.id))
+        console.log('optionsChosen', optionsChosen)
+        
+        //3. remove matches stored in `optionsAll`
+        const result = optionsAll.filter( opt => !optionsChosen.includes(opt) ) 
+        state.assessment.optionsUnchosen = result;
+        console.log('result', result)
+
     },
 
     choose: ( id, rank ) => {
