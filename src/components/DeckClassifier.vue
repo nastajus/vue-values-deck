@@ -48,18 +48,21 @@
         const options = this.$store.assessment.options;
         const optionsChosen = options.filter(option => chosenIds.includes(option.id) )
 
+
         //remove match(es)(ing CARDs) inside stored `options`
-        // ... how? ... 
-        // ... which design is good/bad here? ... 
-        
-        // store design / model design 
-        // pros cons debate: 
-        //    something should ~always know~ the ~full set~ ... right? 
-        //    if i simply ~~move around~~ mutating the ~~original options~~ isn't this some kind of anti-pattern? some kind of ~~data-risk~~ ?
-        //    can i have a duplication set... so... load once from an "original source"... but then keep it "as a backup that's entirely separate"... 
-        //    it seems there's value in designing this to "move around a singular copy" of whatever particular data piece is at play... 
-        //    ... intuitively... my inner compsci sense says... code smell... but my ~~ease of design~~ says it's also *attractive* to model my data structures/functions *on reality* as if <i were moving real cards around without copies>. ... 
-        //    ... perhaps better to just make it and get criticism later... or even solicit criticism later... 
+
+        //yup, very destructive... 
+        // saw a refresh wipe away everything... 
+        //  not sure how to trigger yet... but i know it'll happen again... 
+        //   ok so it happens when I save code changes but don't refresh the page, but the LiveServer refreshes for me. I'm sure there's other lifecycle scenarios where it happens. it's just too risky to mix in such volatile behavior without digging into it much more deeply. just... design this better dude.
+
+        // my frakenstein creation... that fails.
+        // let temp = options.filter( () => !options.includes(optionsChosen)) 
+
+        //internet-found
+        let newMyArray = options.filter( ( el ) => !optionsChosen.includes( el ) );
+        console.log(newMyArray) //this.$store.assessment.options
+        this.$store.assessment.options = newMyArray                
 
         return optionsChosen;
         
