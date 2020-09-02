@@ -22,6 +22,8 @@ const mutations = { };
 
 const getters = { 
   allOptions: (state) => state.assessment.options
+  //mindfulness programming:
+  // here i wasn't able to notice the "gaffe" because i "trusted the autocomplete" but in javascript autocomplete is very different from statically typed C#/Java... ... ... essentially i can't trust it? ... there's a whole rabbit hole to contemplate here...
 }; 
 
 
