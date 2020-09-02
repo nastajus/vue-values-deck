@@ -22,13 +22,14 @@ const mutations = {
     classifyOption: (id, rank) => state.assessment.chosen.push( {id, rank} ),
     //is this good design in javascript?? terrible in js??
 
-    declassifyOption: (id, rank) => state.assessment.chosen.push( {id, rank} ),
+    declassifyOption: (id, rank) => { 
+        //1 of 2: remove from `chosen`
+        const id = state.assessment.chosen.indexOf( id );
+        state.assessment.chosen.splice(id, 1);
 
-    // ** which way is best to remove elements from arrays in js?? **
-    // INTERNET: myArray.splice(start, deleteCount) actually removes the element, reindexes the array, and changes its length. 
-    // MEANS: need index... index + splice go together.... 
-    // QUESTION: best way?? well this (index + splice) or... filter...
-    // ~~ both need id. ok. i take (index + splice) then.
+        //2 of 2: show again:
+        toggleOption( id, true );
+    },
 
     toggleOption: ( id, bool ) => state.assessment.options.find(id)[show] = bool,
 
@@ -37,7 +38,7 @@ const mutations = {
 const actions = { 
     choose: ( id, rank ) => {
         classifyOption(id, rank);
-        toggleOption
+        //toggleOption
     }
 };
 
