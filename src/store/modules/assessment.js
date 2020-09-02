@@ -8,6 +8,11 @@ const state = {
       { id: 4, show: true, src: require(`@/assets/logo-yellow.png`) }, 
     ],
     optionsUnchosen: [],
+
+    //^^^^^^^^^^
+    // now i begin to recognize these as different data types, merely by their composition... interesting javascript mentality shift... 
+    //vvvvvvvvvv
+
     chosen: [
       {id: 1,  rank: 1 }, 
       {id: 3,  rank: 3 },
@@ -34,16 +39,13 @@ const mutations = {
 const actions = { 
 
     //use static dummy starting data.. to be run-time dynamically filter from `chosen` and placed into  `optionsUnchosen`, and use then use just `optionsUnchosen` as the external accessor (getter). 
-    // question: can i say this implicitly validates? ugh, nvm, too academic & impractical a question anyways.
     load: () => {
 
         //STEP 1: FILL UP `optionsUnchosen` WITH ALL `options`
-
-        //Shallow Copy Only Please note spread only goes one level deep when copying an array
-        //state.assessment.optionsUnchosen = state.assessment.options    //❌
-        state.assessment.optionsUnchosen = [...state.assessment.options] //✅
+        state.assessment.optionsUnchosen = [...state.assessment.options] //good?
 
         //STEP 2: filter
+        
         // chosen
         // optionsUnchosen
     },

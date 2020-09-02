@@ -12,7 +12,7 @@ new Vue({
 
   methods: mapActions(["load"]),    // question: is this even a valid location to do 'load'??
 
-  created() {    
+  created() {
     this.load();
   },  
   

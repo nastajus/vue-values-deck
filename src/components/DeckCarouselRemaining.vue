@@ -29,7 +29,7 @@
     },
     computed: mapGetters(["allOptionsAvailable"])
     
-    //computed: ...mapGetters(["allOptions"]) //spread operator   not valid here    not sure why
+    //computed: ...mapGetters(["allOptions"]) //spread operator   not valid here    not sure why    not sure why it's even used in examples
 
 
 }
