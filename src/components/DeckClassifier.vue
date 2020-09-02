@@ -50,19 +50,11 @@
 
 
         //remove match(es)(ing CARDs) inside stored `options`
-
-        //yup, very destructive... 
-        // saw a refresh wipe away everything... 
-        //  not sure how to trigger yet... but i know it'll happen again... 
-        //   ok so it happens when I save code changes but don't refresh the page, but the LiveServer refreshes for me. I'm sure there's other lifecycle scenarios where it happens. it's just too risky to mix in such volatile behavior without digging into it much more deeply. just... design this better dude.
-
-        // my frakenstein creation... that fails.
-        // let temp = options.filter( () => !options.includes(optionsChosen)) 
-
         //internet-found
         let newMyArray = options.filter( ( el ) => !optionsChosen.includes( el ) );
-        console.log(newMyArray) //this.$store.assessment.options
-        this.$store.assessment.options = newMyArray                
+        console.log(newMyArray) 
+        this.$store.assessment.options = newMyArray 
+        //probably should rewrite/centralize all this kind of operations in the store...
 
         return optionsChosen;
         
