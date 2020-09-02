@@ -1,21 +1,21 @@
 
 const state = {
-  assessment: {
+assessment: {
 
     optionsAll: [
-      { id: 1, show: true, src: require(`@/assets/logo.png`) }, 
-      { id: 2, show: true, src: require(`@/assets/logo-blue.png`) }, 
-      { id: 3, show: true, src: require(`@/assets/logo-violet.png`) }, 
-      { id: 4, show: true, src: require(`@/assets/logo-yellow.png`) }, 
+        { id: 1, show: true, src: require(`@/assets/logo.png`) }, 
+        { id: 2, show: true, src: require(`@/assets/logo-blue.png`) }, 
+        { id: 3, show: true, src: require(`@/assets/logo-violet.png`) }, 
+        { id: 4, show: true, src: require(`@/assets/logo-yellow.png`) }, 
     ],
     optionsUnchosen: [],
 
     chosen: [
-      {id: 1,  rank: 1 }, 
-      {id: 3,  rank: 3 },
-      {id: 4,  rank: 3 }
-    ],
-  }
+        {id: 1,  rank: 1 }, 
+        {id: 3,  rank: 3 },
+        {id: 4,  rank: 3 }
+    ], 
+    }
 };
 
 const mutations = { 
@@ -36,6 +36,8 @@ const mutations = {
 const actions = { 
 
     //use static dummy starting data.. to be run-time dynamically filter from `chosen` and placed into  `optionsUnchosen`, and use then use just `optionsUnchosen` as the external accessor (getter). 
+
+    //question: is this semantically an `action` or an `mutation`? probably need to rewrite somewhat these functions
     load: () => {
 
         //1. find matching `IDs` stored in `chosen`
@@ -45,10 +47,26 @@ const actions = {
         //2. find matching `CARDs` stored in `optionsAll`
         const optionsAll = state.assessment.optionsAll
         const optionsChosen = optionsAll.filter(option => chosenIds.includes(option.id))
+            .map(obj=> ({ ...obj, rank: obj.rank}))
+        console.log('optionsChosen', optionsChosen )
+        //ok so... rank doesn't exist, so it's correctly rank: undefined on all ..
+
+        //4. update `rank` inside options.
+        // ... ugh ... 
         
         //3. remove matches stored in `optionsAll`
         const result = optionsAll.filter( opt => !optionsChosen.includes(opt) ) 
-        state.assessment.optionsUnchosen = result;
+        state.assessment.optionsUnchosen = result
+
+        
+
+    },
+
+    //rank == column (a number, between 1 to 3)
+    showColumn: (rank) => {
+        //question: how much type checking is acceptable/desirable in javascript?
+        if (typeof rank !== "number") return;
+        return optionsAll.filter()
 
     },
 
