@@ -37,23 +37,11 @@ const store = Vue.observable({
     //   NOT: 3
     // }
     //Object.freeze(Choices)
-    choose(id, rank, originArray) { // is.. pass.. by.. ref ... 
-      //store.assessment.chosen.push__({rank__, woopssss___ })
-      //store.assessment.chosen[rank].pushIfNotExists...()
+    choose(id, rank, originArray) { 
       store.assessment.chosen.push({rank, id})
-      //store.assessment.options.filter( () => id = id)
-      //store.assessment.options.filter( item => item.id = id) // at least disambiguates...
       originArray.filter( item => item.id = id ) // this permits me to "re-choose" between any of the columns and the "original source" array
 
-      //option 1: A) find index, then B) splice that index
-      //option 2: filter( ~callback~ )  in flavor OLD or NEW (lambda arrow)
-        //array.filter(callback(element, index, arr), thisValue
-        //array.filter(item => item.name === criteria)
-
     } 
-
-
-
   }
 });
 
