@@ -16,30 +16,30 @@ const state = {
 };
 
 const mutations = { 
-    //moveOptionBetween: (originArray, targetArray) => 
 
     //assign to `chosen` with INPUT{id, column#(aka: rank)}.
     classifyOption: (id, rank) => state.assessment.chosen.push( {id, rank} ),
     //is this good design in javascript?? terrible in js??
 
-    declassifyOption: (id, rank) => { 
-        //1 of 2: remove from `chosen`
-        const id = state.assessment.chosen.indexOf( id );
-        state.assessment.chosen.splice(id, 1);
-
-        //2 of 2: show again:
-        toggleOption( id, true );
+    declassifyOption: (id) => { 
+        const idd = state.assessment.chosen.indexOf( id );
+        state.assessment.chosen.splice(idd, 1);
     },
 
-    toggleOption: ( id, bool ) => state.assessment.options.find(id)[show] = bool,
+    toggleOption: ( id, bool ) => state.assessment.options.find(id)['show'] = bool,
 
 };
 
 const actions = { 
     choose: ( id, rank ) => {
-        classifyOption(id, rank);
-        //toggleOption
-    }
+        classifyOption(id, rank)
+        toggleOption(id, false)
+    },
+
+    unchoose: ( id, rank ) => {
+        declassifyOption(id, rank)
+        toggleOption(id, true)
+    },
 };
 
 
@@ -76,6 +76,6 @@ export default {
     //state: state //ECMA5
     state,
     getters, 
-    mutations
-    //,actions
+    mutations,
+    actions
 }
