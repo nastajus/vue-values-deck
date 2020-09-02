@@ -47,7 +47,7 @@ const actions = {
         //2. find matching `CARDs` stored in `optionsAll`
         const optionsAll = state.assessment.optionsAll
         const optionsChosen = optionsAll.filter(option => chosenIds.includes(option.id))
-            .map(obj=> ({ ...obj, rank: obj.rank}))
+            .map(obj=> ({ ...obj, rank: ____.rank}))
         console.log('optionsChosen', optionsChosen )
         //ok so... rank doesn't exist, so it's correctly rank: undefined on all ..
 
