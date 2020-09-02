@@ -11,6 +11,7 @@
       <DeckCards v-bind:cards="loadColumn(column)" />
       <DeckCard /> 
     </div>
+    {{ allOptions }}
 
   </section>
 
@@ -20,6 +21,7 @@
 
   import DeckCards from "./DeckCards.vue";
   import DeckCard from "./DeckCard.vue";
+  import { mapGetters } from "vuex";
 
   export default  {
     name: 'deck-classifier',
@@ -51,12 +53,12 @@
       loadColumn: function(whichColumn) { 
 
         //find match(es)(ing IDs) inside stored `chosens` of ~~initial load~~ 
-        const chosen = this.getOptions_getOptions;
+        const chosen = this.allOptions;
         console.log(chosen)
         const chosenIds = chosen.filter(choice => choice.rank == whichColumn).map( choice => choice.id )
 
         //find match(es)(ing CARDs) inside stored `options` of ~~initial load~~
-        const options = this.getOptions_getOptions;
+        const options = this.allOptions;
         const optionsChosen = options.filter(option => chosenIds.includes(option.id) )
 
 
@@ -75,11 +77,14 @@
         
       }
     },
-    computed: {
-      getOptions_getOptions() {
-        return this.$store.getters.getOptions
-      }
-    }
+
+    computed: mapGetters(["allOptions"])
+
+    // computed: {
+    //   getOptions_getOptions() {
+    //     return this.$store.getters.getOptions
+    //   }
+    // }
 }
 
 

@@ -40,8 +40,8 @@ const store = new Vuex.Store({
       return state.assessment.options;
     },
 
-    // //written traversy's way:
-    // allOptions: (state) => state.options,
+    //written traversy's way:
+    allOptions: (state) => state.options,
   }
 
 
