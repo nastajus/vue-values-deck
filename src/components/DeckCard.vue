@@ -1,9 +1,8 @@
+
+
 <template lang="html">
   <div class="deck-card" v-bind:class="showBlank" >
-    <!-- sigh: no null conditional operator in vue _2_ templates --> 
-    <!-- Errors compiling template: invalid expression: Unexpected token . in card?.src --> 
-    <img v-bind:src="card?.src"> <!-- ❌ --> 
-    <img v-bind:src="card ? card.src : null"> <!-- ✔ --> 
+    <img v-bind:src="card ? card.src : null">
   </div>
 </template>
 

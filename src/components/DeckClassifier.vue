@@ -9,7 +9,7 @@
 
     <div class="deck-classifier-column" v-for="(column, index) in [1,2,3]" v-bind:key="index">
       <DeckCards v-bind:cards="loadColumn(column)"/>
-      <DeckCard />
+      <DeckCard />  <!-- an extra empty 'card' (holder) that's blank, to "drag into" --> 
     </div>
 
   </section>
