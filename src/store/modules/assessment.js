@@ -76,6 +76,7 @@ export default {
     //state: state //ECMA5
     state,
     getters, 
-    mutations,
-    actions
+    actions,
+    mutations 
 }
+ 
