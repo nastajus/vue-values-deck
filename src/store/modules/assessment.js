@@ -1,8 +1,7 @@
 
 const state = {
   assessment: {
-      
-    //`CARDs` 'types' so to speak...
+
     optionsAll: [
       { id: 1, show: true, src: require(`@/assets/logo.png`) }, 
       { id: 2, show: true, src: require(`@/assets/logo-blue.png`) }, 
@@ -11,11 +10,6 @@ const state = {
     ],
     optionsUnchosen: [],
 
-    //^^^^^^^^^^
-    // now i begin to recognize these as different data types, merely by their composition... interesting javascript mentality shift... 
-    //vvvvvvvvvv
-
-    //`IDs` 'types' so to speak...
     chosen: [
       {id: 1,  rank: 1 }, 
       {id: 3,  rank: 3 },
@@ -47,17 +41,14 @@ const actions = {
         //1. find matching `IDs` stored in `chosen`
         const chosen = [...state.assessment.chosen]
         const chosenIds = chosen.map(choice => choice.id)
-        console.log('chosenIds', chosenIds)
 
         //2. find matching `CARDs` stored in `optionsAll`
         const optionsAll = [...state.assessment.optionsAll]
         const optionsChosen = optionsAll.filter(option => chosenIds.includes(option.id))
-        console.log('optionsChosen', optionsChosen)
         
         //3. remove matches stored in `optionsAll`
         const result = optionsAll.filter( opt => !optionsChosen.includes(opt) ) 
         state.assessment.optionsUnchosen = result;
-        console.log('result', result)
 
     },
 
