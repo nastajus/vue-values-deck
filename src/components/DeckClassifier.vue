@@ -7,26 +7,17 @@
     <div>Two</div>
     <div>Three</div>
 
-    <div class="deck-classifier-column">
-      <!-- {{ loadColumn(1) }}
-      {{ loadColumn(2) }}
-      {{ loadColumn(3) }} -->
-      
+    <div class="deck-classifier-column">      
       <DeckCards v-bind:cards="loadColumn(1)"/>
+    </div>
+
+    <div class="deck-classifier-column">
       <DeckCards v-bind:cards="loadColumn(2)"/>
-      <DeckCards v-bind:cards="loadColumn(3)"/>
-
     </div>
 
     <div class="deck-classifier-column">
-
+      <DeckCards v-bind:cards="loadColumn(3)"/>      
     </div>
-
-
-    <div class="deck-classifier-column">
-      
-    </div>
-
 
   </section>
 
