@@ -17,16 +17,13 @@ const store = Vue.observable({
     // }
     chosen: [
         // { rank: 'very', ids: [1] }, 
-        // { rank: 'somewhat', ids: [2] },
         // { rank: 'not', ids: [3, 4] }
 
         // { rank: 'very', id: 1 }, 
-        // { rank: 'somewhat', id: 2 },
         // { rank: 'not', id: 3 },
         // { rank: 'not', id: 4 }
 
         { rank: 1, id: 1 }, 
-        { rank: 2, id: 2 },
         { rank: 3, id: 3 },
         { rank: 3, id: 4 }
     ],

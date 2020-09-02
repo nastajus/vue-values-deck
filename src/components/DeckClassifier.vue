@@ -8,7 +8,7 @@
     <div>Three</div>
 
     <div class="deck-classifier-column" v-for="(column, index) in [1,2,3]" v-bind:key="index">
-      <DeckCards v-bind:cards="loadColumn(column)"/>
+      <DeckCards v-bind:cards="loadColumn(column)" />
       <DeckCard /> 
     </div>
 
@@ -37,14 +37,20 @@
     },
     methods: {
       //equal? 
-      //loadColumn () { 
+      //loadColumn (whichColumn) { 
       loadColumn: function(whichColumn) { 
 
+        //find match(es)(ing IDs) inside stored `chosens` of ~~initial load~~ 
         const chosen = this.$store.assessment.chosen;
         const chosenIds = chosen.filter(choice => choice.rank == whichColumn).map( choice => choice.id )
 
+        //find match(es)(ing CARDs) inside stored `options` of ~~initial load~~
         const options = this.$store.assessment.options;
         const optionsChosen = options.filter(option => chosenIds.includes(option.id) )
+
+        //remove match(es)(ing CARDs) inside stored `options`
+        // ... how? ... 
+        // ... which design is good/bad here? ... 
 
         return optionsChosen;
         
