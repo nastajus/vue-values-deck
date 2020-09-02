@@ -1,6 +1,9 @@
 <template lang="html">
-  <div class="deck-card">
-    <img v-bind:src="card.src">
+  <div class="deck-card" v-bind:class="showBlank" >
+    <!-- sigh: no null conditional operator in vue _2_ templates --> 
+    <!-- Errors compiling template: invalid expression: Unexpected token . in card?.src --> 
+    <img v-bind:src="card?.src"> <!-- ❌ --> 
+    <img v-bind:src="card ? card.src : null"> <!-- ✔ --> 
   </div>
 </template>
 
@@ -23,7 +26,10 @@
 
     },
     computed: {
-
+      showBlank() {
+        // sigh:    error  'card' is not defined  no-undef
+        return !this.card ? " is-blank" : " ";
+      }
     }
 }
 </script>
@@ -43,5 +49,9 @@
 
   .deck-card img {
     width: 100px;
+  }
+
+  .is-blank {
+    background: whitesmoke;
   }
 </style>

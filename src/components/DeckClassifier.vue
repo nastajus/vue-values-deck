@@ -9,6 +9,7 @@
 
     <div class="deck-classifier-column" v-for="(column, index) in [1,2,3]" v-bind:key="index">
       <DeckCards v-bind:cards="loadColumn(column)"/>
+      <DeckCard />
     </div>
 
   </section>
@@ -18,11 +19,13 @@
 <script lang="js">
 
   import DeckCards from "./DeckCards.vue";
+  import DeckCard from "./DeckCard.vue";
 
   export default  {
     name: 'deck-classifier',
     components: { 
-      DeckCards
+      DeckCards,
+      DeckCard
     },
     mounted () {
 
