@@ -1,12 +1,4 @@
 
-
-// sigh: vuex__WEBPACK_IMPORTED_MODULE_6__.default.store is not a constructor
-// spelling error of "store" vs "Store"...:  const store = new Vuex.store({
-
-
-//const store = new Vuex.Store({
-
-//state: { 
 const state = {
     assessment: {
     options: [
@@ -23,45 +15,14 @@ const state = {
     }
 };
 
-//, mutations: {
+const mutations = { };
 
-const mutations = {
-
-    //choose == classify, aka drag from carosel into a classifier column, affecting state here.
-    //!!!!choose(id, rank, originArray) { 
-        //oh fuck off
-        //coding mindfulness noticing... 
-        //it's okay... problem solving can go slowly... bit by bit.
-
-        //!!!!!!store.assessment.chosen.push({rank, id})
-        //!!!!!!originArray.filter( item => item.id = id ) 
-        
-        // this permits me to "re-choose" between any of the columns and the "original source" array
-
-    //!!!!} 
-};
-
-//, actions: { },
 // const actions = { };
 
-// getters: { 
-const getters = { 
-    //written my way 
-    getOptions(state) {
-    return state.assessment.options;
-    },
 
-    //written traversy's way:
+const getters = { 
     allOptions: (state) => state.options,
 }; 
-
-
-// uncertain... how to/if will implement method... perhaps migrate into `actions` or into `mutations`?
-//  ~repurpose as loader from .. api ..on backend that fetches file system..~
-//  add(value) {
-//    store.assessment.options.push(value);
-//  }
-
 
 
 // uncertain... how to enforce ... anything like this ... in js? 
