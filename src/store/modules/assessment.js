@@ -39,11 +39,11 @@ const actions = {
     load: () => {
 
         //1. find matching `IDs` stored in `chosen`
-        const chosen = [...state.assessment.chosen]
+        const chosen = state.assessment.chosen
         const chosenIds = chosen.map(choice => choice.id)
 
         //2. find matching `CARDs` stored in `optionsAll`
-        const optionsAll = [...state.assessment.optionsAll]
+        const optionsAll = state.assessment.optionsAll
         const optionsChosen = optionsAll.filter(option => chosenIds.includes(option.id))
         
         //3. remove matches stored in `optionsAll`
