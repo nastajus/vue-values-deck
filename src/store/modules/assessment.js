@@ -3,17 +3,17 @@ const state = {
 assessment: {
 
     optionsAll: [
-        { id: 1, show: true, src: require(`@/assets/logo.png`) }, 
-        { id: 2, show: true, src: require(`@/assets/logo-blue.png`) }, 
-        { id: 3, show: true, src: require(`@/assets/logo-violet.png`) }, 
-        { id: 4, show: true, src: require(`@/assets/logo-yellow.png`) }, 
+        { id: 1, src: require(`@/assets/logo.png`) }, 
+        { id: 2, src: require(`@/assets/logo-blue.png`) }, 
+        { id: 3, src: require(`@/assets/logo-violet.png`) }, 
+        { id: 4, src: require(`@/assets/logo-yellow.png`) }, 
     ],
     optionsUnchosen: [],
 
     chosen: [
-        {id: 1,  rank: 1 }, 
-        {id: 3,  rank: 3 },
-        {id: 4,  rank: 3 }
+        {id: 1, rank: 1, classifiable: false },
+        {id: 3, rank: 3, classifiable: false },
+        {id: 4, rank: 3, classifiable: false }
     ], 
     }
 };
@@ -29,7 +29,7 @@ const mutations = {
         state.assessment.chosen.splice(idd, 1);
     },
 
-    toggleOption: ( id, bool ) => state.assessment.optionsAll.find(id)['show'] = bool,
+    toggleOption: ( id, bool ) => state.assessment.optionsAll.find(id)['classifiable'] = bool,
 
 };
 
@@ -60,14 +60,6 @@ const actions = {
 
         //merging two disparate object arrays
         
-        var array1 = [{ id: "abdc4051", date: "2017-01-24" }, { id: "abdc4052", date: "2017-01-22" }],
-        array2 = [{ id: "abdc4051", name: "ab" }, { id: "abdc4052", name: "abc" }],
-        resultt = [array1, array2].reduce((a, b) => a.map((c, i) => Object.assign({}, c, b[i])));
-        
-        console.log(resultt);
-
-
-
         // You could use an arbitrary count of arrays and map on the same index new objects.
         const resulttt = [chosen, optionsChosen].reduce((a, b) => a.map((c, i) => Object.assign({}, c, b[i])));
         console.log(resulttt)
