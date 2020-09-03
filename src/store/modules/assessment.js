@@ -50,12 +50,28 @@ const actions = {
 
         //4. update `rank` inside options.
         // ... ugh ... 
-        
+
         //3. remove matches stored in `optionsAll`
         const result = optionsAll.filter( opt => !optionsChosen.includes(opt) ) 
         state.assessment.optionsUnchosen = result
 
+
+
+
+        //merging two disparate object arrays
         
+        var array1 = [{ id: "abdc4051", date: "2017-01-24" }, { id: "abdc4052", date: "2017-01-22" }],
+        array2 = [{ id: "abdc4051", name: "ab" }, { id: "abdc4052", name: "abc" }],
+        resultt = [array1, array2].reduce((a, b) => a.map((c, i) => Object.assign({}, c, b[i])));
+        
+        console.log(resultt);
+
+
+
+        // You could use an arbitrary count of arrays and map on the same index new objects.
+        const resulttt = [chosen, optionsChosen].reduce((a, b) => a.map((c, i) => Object.assign({}, c, b[i])));
+        console.log(resulttt)
+
 
     },
 
