@@ -2,19 +2,23 @@
 const state = {
 assessment: {
 
-    optionsAll: [
+    optionsToLoad: [
         { id: 1, src: require(`@/assets/logo.png`) }, 
         { id: 2, src: require(`@/assets/logo-blue.png`) }, 
         { id: 3, src: require(`@/assets/logo-violet.png`) }, 
         { id: 4, src: require(`@/assets/logo-yellow.png`) }, 
     ],
+
+    chosenToLoad: [
+        {id: 1, rank: 1 },
+        {id: 3, rank: 3 },
+        {id: 4, rank: 3 }
+    ], 
+
     optionsUnchosen: [],
 
-    chosen: [
-        {id: 1, rank: 1, classifiable: false },
-        {id: 3, rank: 3, classifiable: false },
-        {id: 4, rank: 3, classifiable: false }
-    ], 
+    optionsChosen: [],
+
     }
 };
 
@@ -29,7 +33,7 @@ const mutations = {
         state.assessment.chosen.splice(idd, 1);
     },
 
-    toggleOption: ( id, bool ) => state.assessment.optionsAll.find(id)['classifiable'] = bool,
+    toggleOption: ( id, bool ) => state.assessment.optionsToLoad.find(id)['classifiable'] = bool,
 
 };
 
@@ -40,20 +44,21 @@ const actions = {
     //question: is this semantically an `action` or an `mutation`? probably need to rewrite somewhat these functions
     load: () => {
 
-        //1. find matching `IDs` stored in `chosen`
-        const chosen = state.assessment.chosen
+        //1. extract array of `IDs` stored in `chosenToLoad`
+        const chosen = state.assessment.chosenToLoad
         const chosenIds = chosen.map(choice => choice.id)
 
-        //2. find matching `CARDs` stored in `optionsAll`
-        const optionsAll = state.assessment.optionsAll
-        const optionsChosen = optionsAll.filter(option => chosenIds.includes(option.id))
+        //2. extract array of `CARDs` stored in `optionsToLoad` from matchiing array of `IDs`
+        const optionsToLoad = state.assessment.optionsToLoad
+        const optionsChosen = optionsToLoad.filter(option => chosenIds.includes(option.id))
 
-        //4. update `rank` inside options.
-        // ... ugh ... 
+        //3. extract array delta matches between `optionsChosen` and `optionsToLoad`: included
+        const included = optionsToLoad.filter( opt => optionsChosen.includes(opt) ) 
+        state.assessment.optionsUnchosen = included
 
-        //3. remove matches stored in `optionsAll`
-        const result = optionsAll.filter( opt => !optionsChosen.includes(opt) ) 
-        state.assessment.optionsUnchosen = result
+        //4. extract array delta matches between `optionsChosen` and `optionsToLoad`: excluded
+        const excluded = optionsToLoad.filter( opt => !optionsChosen.includes(opt) ) 
+        state.assessment.optionsChosen = excluded
 
 
 
@@ -71,7 +76,7 @@ const actions = {
     showColumn: (rank) => {
         //question: how much type checking is acceptable/desirable in javascript?
         if (typeof rank !== "number") return;
-        return optionsAll.filter()
+        return optionsToLoad.filter()
 
     },
 
@@ -81,11 +86,6 @@ const actions = {
 
         //toggleOption(id, false)
         commit('toggleOption', id, false )
-
-
-        //fuck if i know it works with 2 params... my example only shows 1 param...... i suppose in fact i've seen a multi-param param before... 
-
-        //mindful programming reminds me to... be okay with the feelings i'm feeling with this... as i'm just experimenting to see what works...
 
     },
 
