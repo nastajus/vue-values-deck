@@ -2,6 +2,7 @@
 const state = {
 assessment: {
 
+    //design: only use "_ToLoad" objects during loading phase with "load()".
     optionsToLoad: [
         { id: 1, src: require(`@/assets/logo.png`) }, 
         { id: 2, src: require(`@/assets/logo-blue.png`) }, 
@@ -15,6 +16,7 @@ assessment: {
         {id: 4, rank: 3 }
     ], 
 
+    //design: only use "_chosen" objects in app once populated from "load()".
     optionsUnchosen: [],
 
     optionsChosen: [],
@@ -52,23 +54,25 @@ const actions = {
         const optionsToLoad = state.assessment.optionsToLoad
         const optionsChosen = optionsToLoad.filter(option => chosenIds.includes(option.id))
 
-        //3. extract array delta matches between `optionsChosen` and `optionsToLoad`: included
-        const included = optionsToLoad.filter( opt => optionsChosen.includes(opt) ) 
-        state.assessment.optionsUnchosen = included
-
-        //4. extract array delta matches between `optionsChosen` and `optionsToLoad`: excluded
+        //3. extract array delta matches between `optionsChosen` and `optionsToLoad`: excluded
         const excluded = optionsToLoad.filter( opt => !optionsChosen.includes(opt) ) 
-        state.assessment.optionsChosen = excluded
+        state.assessment.optionsUnchosen = excluded
+
+        //4. extract array delta matches between `optionsChosen` and `optionsToLoad`: included
+        const included = optionsToLoad.filter( opt => optionsChosen.includes(opt) ) 
+        //not yet
+        //state.assessment.optionsUnchosen = included
 
 
+        //5. get "extra property" of `rank` in `chosenToLoad` "added" onto `included` 
 
 
         //merging two disparate object arrays
         
         // You could use an arbitrary count of arrays and map on the same index new objects.
-        const resulttt = [chosen, optionsChosen].reduce((a, b) => a.map((c, i) => Object.assign({}, c, b[i])));
-        console.log(resulttt)
+        const includedRanked = [chosen, included].reduce((a, b) => a.map((c, i) => Object.assign({}, c, b[i])));
 
+        state.assessment.optionsChosen = includedRanked
 
     },
 
@@ -97,7 +101,26 @@ const actions = {
 
 
 const getters = { 
-  allOptionsAvailable: (state) => state.assessment.optionsUnchosen
+    unchosen: (state) => state.assessment.optionsUnchosen,
+
+    //  vuex getter with parameter
+    //    getByIndex: state => index => state.someArray[index]
+
+    //chosen: (state) => (column) => state.assessment.chosen[column]
+    chosen: (state) => (column) => state.assessment.optionsChosen.filter(choice => choice.rank == column )
+
+    //javascript filter by property value
+
+
+    //javascript filter by property name ... oh wait no... oh ok
+
+    //"Filter object properties by key in ES6" is wrong way... 
+    //i don't want "has name" or not... 
+    //i do want "has value at name"... the name is guarenteed given my loader design
+
+
+    
+
 }; 
 
 

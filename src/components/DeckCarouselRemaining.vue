@@ -2,7 +2,7 @@
 
   <section class="deck-carousel-remaining">
     <h1>deck-carousel-remaining Component</h1>
-    <DeckCard v-for="card in allOptionsAvailable" v-bind:key=card.id v-bind:card="card"/>
+    <DeckCard v-for="card in unchosen" v-bind:key=card.id v-bind:card="card"/>
   </section>
 
 </template>
@@ -27,7 +27,7 @@
     methods: {
 
     },
-    computed: mapGetters(["allOptionsAvailable"])
+    computed: mapGetters(["unchosen"])
     
     //computed: ...mapGetters(["allOptions"]) //spread operator   not valid here    not sure why    not sure why it's even used in examples
 

@@ -8,7 +8,7 @@
     <div>Three</div>
 
     <div class="deck-classifier-column" v-for="(column, index) in [1,2,3]" v-bind:key="index">
-      <!-- <DeckCards v-bind:cards="loadColumn(column)" /> -->
+      <DeckCards v-bind:cards="chosen(column)" />
       <DeckCard /> 
     </div>
 
@@ -18,14 +18,14 @@
 
 <script lang="js">
 
-  //import DeckCards from "./DeckCards.vue";
+  import DeckCards from "./DeckCards.vue";
   import DeckCard from "./DeckCard.vue";
   import { mapGetters } from "vuex";
 
   export default  {
     name: 'deck-classifier',
     components: { 
-      //DeckCards,
+      DeckCards,
       DeckCard
     },
     mounted () {
@@ -39,7 +39,7 @@
     methods: {
     },
 
-    computed: mapGetters(["allOptions"])
+    computed: mapGetters(["chosen"])
 }
 
 
