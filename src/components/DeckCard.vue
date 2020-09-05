@@ -2,23 +2,18 @@
 
 <template lang="html">
   <div class="deck-card" v-bind:class="showBlank" >
-    <draggable @mousdown="drag(card ? card : null)">
-      <img v-bind:src="card ? card.src : null">
-    </draggable>
+    <img v-bind:src="card ? card.src : null">
   </div>
 </template>
 
 
 
 <script lang="js">
-  import draggable from 'vuedraggable'
-  import { mapGetters } from "vuex";
-
+  //import { mapGetters } from "vuex";
 
   export default  {
     name: 'deck-card',
-    components: { draggable },
-
+    // components: { draggable },
     props: ['card'],
     mounted () {
 
@@ -34,7 +29,7 @@
     },
     
     computed: {
-      ...mapGetters(["chosen"]), 
+      // ...mapGetters(["chosen"]), 
       showBlank() {
         // sigh:    error  'card' is not defined  no-undef
         return !this.card ? " is-blank" : " ";
