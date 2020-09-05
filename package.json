@@ -11,6 +11,7 @@
     "core-js": "^3.6.5",
     "vue": "^2.6.11",
     "vue-generate-component": "^3.0.1",
+    "vuedraggable": "^2.24.1",
     "vuex": "^3.5.1"
   },
   "devDependencies": {
@@ -36,12 +37,10 @@
     "parserOptions": {
       "parser": "babel-eslint"
     },
-
     "rules": {
       "no-unused-vars": "off",
       "no-undef": "off"
-    }   
-    
+    }
   },
   "browserslist": [
     "> 1%",

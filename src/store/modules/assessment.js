@@ -2,7 +2,7 @@
 const state = {
 assessment: {
 
-    //design: only use "_ToLoad" objects during loading phase with "load()".
+    //design: only use "*ToLoad" objects during loading phase with "load()".
     optionsToLoad: [
         { id: 1, src: require(`@/assets/logo.png`) }, 
         { id: 2, src: require(`@/assets/logo-blue.png`) }, 
@@ -16,7 +16,7 @@ assessment: {
         {id: 4, rank: 3 }
     ], 
 
-    //design: only use "_chosen" objects in app once populated from "load()".
+    //design: only use "*chosen" objects in app once populated from "load()".
     optionsUnchosen: [],
 
     optionsChosen: [],
@@ -102,7 +102,7 @@ const getters = {
 
     //chosen: (state) => (column) => state.assessment.chosen[column]
     chosen: (state) => (column) => state.assessment.optionsChosen.filter(choice => choice.rank == column )
-    
+
 }; 
 
 

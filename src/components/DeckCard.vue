@@ -2,16 +2,29 @@
 
 <template lang="html">
   <div class="deck-card" v-bind:class="showBlank" >
-    <img v-bind:src="card ? card.src : null">
+    {{chosen}}
+    {{chosen(1)}}
+    
+    <!-- [Vue warn]: Invalid prop: type check failed for prop "value". Expected Array, got Function --> 
+    <draggable     v-model="chosen" 
+
+     @mousdown="drag(card ? card : null)">
+      <img v-bind:src="card ? card.src : null">
+    </draggable>
   </div>
 </template>
 
 
 
 <script lang="js">
+  import draggable from 'vuedraggable'
+  import { mapGetters } from "vuex";
+
 
   export default  {
     name: 'deck-card',
+    components: { draggable },
+
     props: ['card'],
     mounted () {
 
@@ -22,9 +35,12 @@
       }
     },
     methods: {
+      drag: (card) => console.log(card)
 
     },
+    
     computed: {
+      ...mapGetters(["chosen"]), 
       showBlank() {
         // sigh:    error  'card' is not defined  no-undef
         return !this.card ? " is-blank" : " ";
