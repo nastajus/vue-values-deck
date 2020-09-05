@@ -60,15 +60,9 @@ const actions = {
 
         //4. extract array delta matches between `optionsChosen` and `optionsToLoad`: included
         const included = optionsToLoad.filter( opt => optionsChosen.includes(opt) ) 
-        //not yet
-        //state.assessment.optionsUnchosen = included
-
 
         //5. get "extra property" of `rank` in `chosenToLoad` "added" onto `included` 
-
-
         //merging two disparate object arrays
-        
         // You could use an arbitrary count of arrays and map on the same index new objects.
         const includedRanked = [chosen, included].reduce((a, b) => a.map((c, i) => Object.assign({}, c, b[i])));
 
@@ -108,19 +102,7 @@ const getters = {
 
     //chosen: (state) => (column) => state.assessment.chosen[column]
     chosen: (state) => (column) => state.assessment.optionsChosen.filter(choice => choice.rank == column )
-
-    //javascript filter by property value
-
-
-    //javascript filter by property name ... oh wait no... oh ok
-
-    //"Filter object properties by key in ES6" is wrong way... 
-    //i don't want "has name" or not... 
-    //i do want "has value at name"... the name is guarenteed given my loader design
-
-
     
-
 }; 
 
 
