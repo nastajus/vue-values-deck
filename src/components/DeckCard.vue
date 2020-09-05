@@ -2,13 +2,7 @@
 
 <template lang="html">
   <div class="deck-card" v-bind:class="showBlank" >
-    {{chosen}}
-    {{chosen(1)}}
-    
-    <!-- [Vue warn]: Invalid prop: type check failed for prop "value". Expected Array, got Function --> 
-    <draggable     v-model="chosen" 
-
-     @mousdown="drag(card ? card : null)">
+    <draggable @mousdown="drag(card ? card : null)">
       <img v-bind:src="card ? card.src : null">
     </draggable>
   </div>
